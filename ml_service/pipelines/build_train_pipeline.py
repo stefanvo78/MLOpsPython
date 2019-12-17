@@ -61,21 +61,21 @@ def main():
     )
     print("Step Train created")
 
-"""
-    evaluate_step = PythonScriptStep(
-        name="Evaluate Model ",
-        script_name=e.evaluate_script_path,
-        compute_target=aml_compute,
-        source_directory=e.sources_directory_train,
-        arguments=[
-            "--build_id", build_id_param,
-            "--model_name", model_name_param,
-        ],
-        runconfig=run_config,
-        allow_reuse=False,
-    )
-    print("Step Evaluate created")
-"""
+
+#    evaluate_step = PythonScriptStep(
+#        name="Evaluate Model ",
+#        script_name=e.evaluate_script_path,
+#        compute_target=aml_compute,
+#        source_directory=e.sources_directory_train,
+#        arguments=[
+#            "--build_id", build_id_param,
+#            "--model_name", model_name_param,
+#        ],
+#        runconfig=run_config,
+#        allow_reuse=False,
+#    )
+#    print("Step Evaluate created")
+#"""
 
     register_step = PythonScriptStep(
         name="Register Model ",
