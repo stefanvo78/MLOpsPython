@@ -61,6 +61,7 @@ def main():
     )
     print("Step Train created")
 
+"""
     evaluate_step = PythonScriptStep(
         name="Evaluate Model ",
         script_name=e.evaluate_script_path,
@@ -74,6 +75,7 @@ def main():
         allow_reuse=False,
     )
     print("Step Evaluate created")
+"""
 
     register_step = PythonScriptStep(
         name="Register Model ",
@@ -89,9 +91,10 @@ def main():
     )
     print("Step Register created")
 
-    evaluate_step.run_after(train_step)
-    register_step.run_after(evaluate_step)
-    steps = [train_step, evaluate_step, register_step]
+    #evaluate_step.run_after(train_step)
+    register_step.run_after(train_step)
+    #steps = [train_step, evaluate_step, register_step]
+    steps = [train_step,  register_step]
 
     train_pipeline = Pipeline(workspace=aml_workspace, steps=steps)
     train_pipeline._set_experiment_name
